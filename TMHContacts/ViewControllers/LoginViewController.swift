@@ -10,9 +10,21 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var btnSignIn: UIButton!
+    
+    @IBAction func btnSignInAction(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    //Metodo usado para fechar o teclado quando o usuario clica em outro lugar da tela que nao seja no TextField
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     // esse metodo e chamado SEMRPE que a tela for apresentada ao usuario
