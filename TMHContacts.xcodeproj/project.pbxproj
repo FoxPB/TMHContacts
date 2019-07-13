@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		074D1C9189340B380B1E1EF2 /* Pods_TMHContacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FEC8B320E3DAF861A8A7A2 /* Pods_TMHContacts.framework */; };
 		51178E1122D7C133002EB20A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51178E1022D7C133002EB20A /* AppDelegate.swift */; };
-		51178E1322D7C133002EB20A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51178E1222D7C133002EB20A /* ViewController.swift */; };
 		51178E1622D7C133002EB20A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51178E1422D7C133002EB20A /* Main.storyboard */; };
 		51178E1822D7C134002EB20A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51178E1722D7C134002EB20A /* Assets.xcassets */; };
 		51178E1B22D7C134002EB20A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51178E1922D7C134002EB20A /* LaunchScreen.storyboard */; };
+		5170CF6522DA06EE0008FBFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170CF6422DA06EE0008FBFC /* LoginViewController.swift */; };
+		5170CF6722DA095E0008FBFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5170CF6622DA095E0008FBFC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04419B5712F2F7D2427A5320 /* Pods-TMHContacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMHContacts.release.xcconfig"; path = "Target Support Files/Pods-TMHContacts/Pods-TMHContacts.release.xcconfig"; sourceTree = "<group>"; };
+		38FEC8B320E3DAF861A8A7A2 /* Pods_TMHContacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMHContacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51178E0D22D7C133002EB20A /* TMHContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMHContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51178E1022D7C133002EB20A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		51178E1222D7C133002EB20A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		51178E1522D7C133002EB20A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51178E1722D7C134002EB20A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51178E1A22D7C134002EB20A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51178E1C22D7C134002EB20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5170CF6422DA06EE0008FBFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5170CF6622DA095E0008FBFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA7F360F2C9EB3B152E5CF22 /* Pods-TMHContacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMHContacts.debug.xcconfig"; path = "Target Support Files/Pods-TMHContacts/Pods-TMHContacts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				074D1C9189340B380B1E1EF2 /* Pods_TMHContacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11D5CF66D84070E5B9A0EAB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38FEC8B320E3DAF861A8A7A2 /* Pods_TMHContacts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50CF24438F79FB94BAA6692B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA7F360F2C9EB3B152E5CF22 /* Pods-TMHContacts.debug.xcconfig */,
+				04419B5712F2F7D2427A5320 /* Pods-TMHContacts.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		51178E0422D7C132002EB20A = {
 			isa = PBXGroup;
 			children = (
 				51178E0F22D7C133002EB20A /* TMHContacts */,
 				51178E0E22D7C133002EB20A /* Products */,
+				50CF24438F79FB94BAA6692B /* Pods */,
+				11D5CF66D84070E5B9A0EAB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +81,23 @@
 		51178E0F22D7C133002EB20A /* TMHContacts */ = {
 			isa = PBXGroup;
 			children = (
+				5170CF6322DA06C80008FBFC /* ViewControllers */,
 				51178E1022D7C133002EB20A /* AppDelegate.swift */,
-				51178E1222D7C133002EB20A /* ViewController.swift */,
 				51178E1422D7C133002EB20A /* Main.storyboard */,
 				51178E1722D7C134002EB20A /* Assets.xcassets */,
 				51178E1922D7C134002EB20A /* LaunchScreen.storyboard */,
+				5170CF6622DA095E0008FBFC /* GoogleService-Info.plist */,
 				51178E1C22D7C134002EB20A /* Info.plist */,
 			);
 			path = TMHContacts;
+			sourceTree = "<group>";
+		};
+		5170CF6322DA06C80008FBFC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5170CF6422DA06EE0008FBFC /* LoginViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51178E1F22D7C134002EB20A /* Build configuration list for PBXNativeTarget "TMHContacts" */;
 			buildPhases = (
+				10208CF3A000D2348E20F74F /* [CP] Check Pods Manifest.lock */,
 				51178E0922D7C133002EB20A /* Sources */,
 				51178E0A22D7C133002EB20A /* Frameworks */,
 				51178E0B22D7C133002EB20A /* Resources */,
+				B690C09F5B1EC87F635E930F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51178E1B22D7C134002EB20A /* LaunchScreen.storyboard in Resources */,
+				5170CF6722DA095E0008FBFC /* GoogleService-Info.plist in Resources */,
 				51178E1822D7C134002EB20A /* Assets.xcassets in Resources */,
 				51178E1622D7C133002EB20A /* Main.storyboard in Resources */,
 			);
@@ -130,12 +169,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10208CF3A000D2348E20F74F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMHContacts-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B690C09F5B1EC87F635E930F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMHContacts/Pods-TMHContacts-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMHContacts/Pods-TMHContacts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		51178E0922D7C133002EB20A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51178E1322D7C133002EB20A /* ViewController.swift in Sources */,
+				5170CF6522DA06EE0008FBFC /* LoginViewController.swift in Sources */,
 				51178E1122D7C133002EB20A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +372,7 @@
 		};
 		51178E2022D7C134002EB20A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA7F360F2C9EB3B152E5CF22 /* Pods-TMHContacts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +391,7 @@
 		};
 		51178E2122D7C134002EB20A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04419B5712F2F7D2427A5320 /* Pods-TMHContacts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
