@@ -10,6 +10,10 @@
 		074D1C9189340B380B1E1EF2 /* Pods_TMHContacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FEC8B320E3DAF861A8A7A2 /* Pods_TMHContacts.framework */; };
 		51035F4322DA22E400543532 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4222DA22E400543532 /* CreateAccountViewController.swift */; };
 		51035F4522DA232C00543532 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4422DA232C00543532 /* ForgotPasswordViewController.swift */; };
+		51035F4722DA2F0100543532 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4622DA2F0100543532 /* MapViewController.swift */; };
+		51035F4D22DA32CC00543532 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4C22DA32CC00543532 /* User.swift */; };
+		51035F4F22DA33F600543532 /* Contato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4E22DA33F600543532 /* Contato.swift */; };
+		51035F5122DA346A00543532 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F5022DA346A00543532 /* Alerta.swift */; };
 		51178E1122D7C133002EB20A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51178E1022D7C133002EB20A /* AppDelegate.swift */; };
 		51178E1622D7C133002EB20A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51178E1422D7C133002EB20A /* Main.storyboard */; };
 		51178E1822D7C134002EB20A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51178E1722D7C134002EB20A /* Assets.xcassets */; };
@@ -23,6 +27,10 @@
 		38FEC8B320E3DAF861A8A7A2 /* Pods_TMHContacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMHContacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51035F4222DA22E400543532 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		51035F4422DA232C00543532 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		51035F4622DA2F0100543532 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		51035F4C22DA32CC00543532 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		51035F4E22DA33F600543532 /* Contato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contato.swift; sourceTree = "<group>"; };
+		51035F5022DA346A00543532 /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
 		51178E0D22D7C133002EB20A /* TMHContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMHContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51178E1022D7C133002EB20A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51178E1522D7C133002EB20A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +71,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		51035F4822DA326800543532 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				51035F4C22DA32CC00543532 /* User.swift */,
+				51035F4E22DA33F600543532 /* Contato.swift */,
+				51035F5022DA346A00543532 /* Alerta.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		51178E0422D7C132002EB20A = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +102,7 @@
 		51178E0F22D7C133002EB20A /* TMHContacts */ = {
 			isa = PBXGroup;
 			children = (
+				51035F4822DA326800543532 /* Models */,
 				5170CF6322DA06C80008FBFC /* ViewControllers */,
 				51178E1022D7C133002EB20A /* AppDelegate.swift */,
 				51178E1422D7C133002EB20A /* Main.storyboard */,
@@ -101,6 +120,7 @@
 				5170CF6422DA06EE0008FBFC /* LoginViewController.swift */,
 				51035F4222DA22E400543532 /* CreateAccountViewController.swift */,
 				51035F4422DA232C00543532 /* ForgotPasswordViewController.swift */,
+				51035F4622DA2F0100543532 /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -232,9 +252,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51035F5122DA346A00543532 /* Alerta.swift in Sources */,
+				51035F4F22DA33F600543532 /* Contato.swift in Sources */,
 				51035F4522DA232C00543532 /* ForgotPasswordViewController.swift in Sources */,
 				51035F4322DA22E400543532 /* CreateAccountViewController.swift in Sources */,
+				51035F4D22DA32CC00543532 /* User.swift in Sources */,
 				5170CF6522DA06EE0008FBFC /* LoginViewController.swift in Sources */,
+				51035F4722DA2F0100543532 /* MapViewController.swift in Sources */,
 				51178E1122D7C133002EB20A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
