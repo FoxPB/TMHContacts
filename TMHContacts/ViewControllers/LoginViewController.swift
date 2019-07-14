@@ -7,18 +7,67 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var btnSignIn: UIButton!
+    var auth: Auth!
     
     @IBAction func btnSignInAction(_ sender: Any) {
+        logar()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Login automatico
+        self.auth = Auth.auth()
+        
+        //Adicionar ouvinte de usuario autenticado
+        self.auth.addStateDidChangeListener { (autenticacao, usuario) in
+            
+            if usuario != nil {
+                self.performSegue(withIdentifier: "mapViewSegue", sender: nil)
+            }
+            
+        }
+        
+    }
+    
+    private func logar(){
+        
+        //Recuperar dados digitados
+        if let emailR = self.emailTextField.text {
+            if let senhaR = self.passwordTextField.text {
+                
+                //Autenticar usuario no firebase
+                let autenticacao = Auth.auth()
+                autenticacao.signIn(withEmail: emailR, password: senhaR) { (usuario, erro) in
+                    
+                    //tratar se tivemos erro
+                    if erro == nil {//nao teve erro
+                        
+                        //tratando se temos um usuario com este login
+                        if usuario == nil{
+                            let alerta = Alerta(titulo: "Erro ao Autenticar", mensagem: "Problema ao realizar a autenticacao, tente novamente")
+                            self.present(alerta.getAlerta(), animated: true, completion: nil)
+                        }else{
+                            //Redirecionar o usuario para tela principal
+                            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                        }
+                        
+                    }else{//houve erro
+                        let alerta = Alerta(titulo: "Dados incorretos", mensagem: "Verifique os dados digitados e tente novamente")
+                        self.present(alerta.getAlerta(), animated: true, completion: nil)
+                        
+                    }
+                    
+                }
+            }
+        }
         
     }
     
