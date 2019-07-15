@@ -24,8 +24,5 @@ class MapViewController: UIViewController {
         //com esse metodo a gente "esconde" a barra de navegacao da tela
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-
- 
 
 }

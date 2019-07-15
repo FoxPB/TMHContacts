@@ -18,6 +18,8 @@
 		51178E1622D7C133002EB20A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51178E1422D7C133002EB20A /* Main.storyboard */; };
 		51178E1822D7C134002EB20A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51178E1722D7C134002EB20A /* Assets.xcassets */; };
 		51178E1B22D7C134002EB20A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51178E1922D7C134002EB20A /* LaunchScreen.storyboard */; };
+		513DBA3122DBF2D70028903F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DBA3022DBF2D70028903F /* ProfileViewController.swift */; };
+		513DBA3322DBF4B70028903F /* ContatosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DBA3222DBF4B70028903F /* ContatosTableViewController.swift */; };
 		516BBEFF22DBEBF500ED0F8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516BBEFE22DBEBF500ED0F8C /* GoogleService-Info.plist */; };
 		5170CF6522DA06EE0008FBFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170CF6422DA06EE0008FBFC /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +39,8 @@
 		51178E1722D7C134002EB20A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51178E1A22D7C134002EB20A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51178E1C22D7C134002EB20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		513DBA3022DBF2D70028903F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		513DBA3222DBF4B70028903F /* ContatosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosTableViewController.swift; sourceTree = "<group>"; };
 		516BBEFE22DBEBF500ED0F8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5170CF6422DA06EE0008FBFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA7F360F2C9EB3B152E5CF22 /* Pods-TMHContacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMHContacts.debug.xcconfig"; path = "Target Support Files/Pods-TMHContacts/Pods-TMHContacts.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				51035F4222DA22E400543532 /* CreateAccountViewController.swift */,
 				51035F4422DA232C00543532 /* ForgotPasswordViewController.swift */,
 				51035F4622DA2F0100543532 /* MapViewController.swift */,
+				513DBA3022DBF2D70028903F /* ProfileViewController.swift */,
+				513DBA3222DBF4B70028903F /* ContatosTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -258,7 +264,9 @@
 				51035F4322DA22E400543532 /* CreateAccountViewController.swift in Sources */,
 				51035F4D22DA32CC00543532 /* User.swift in Sources */,
 				5170CF6522DA06EE0008FBFC /* LoginViewController.swift in Sources */,
+				513DBA3122DBF2D70028903F /* ProfileViewController.swift in Sources */,
 				51035F4722DA2F0100543532 /* MapViewController.swift in Sources */,
+				513DBA3322DBF4B70028903F /* ContatosTableViewController.swift in Sources */,
 				51178E1122D7C133002EB20A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

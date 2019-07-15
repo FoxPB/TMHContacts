@@ -17,7 +17,14 @@ class LoginViewController: UIViewController {
     var auth: Auth!
     
     @IBAction func btnSignInAction(_ sender: Any) {
-        logar()
+        
+        do {
+            try
+            logar()
+        } catch {
+            
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -44,8 +51,8 @@ class LoginViewController: UIViewController {
             if let senhaR = self.passwordTextField.text {
                 
                 //Autenticar usuario no firebase
-                let autenticacao = Auth.auth()
-                autenticacao.signIn(withEmail: emailR, password: senhaR) { (usuario, erro) in
+                auth = Auth.auth()
+                auth.signIn(withEmail: emailR, password: senhaR) { (usuario, erro) in
                     
                     //tratar se tivemos erro
                     if erro == nil {//nao teve erro
@@ -54,9 +61,8 @@ class LoginViewController: UIViewController {
                         if usuario == nil{
                             let alerta = Alerta(titulo: "Erro ao Autenticar", mensagem: "Problema ao realizar a autenticacao, tente novamente")
                             self.present(alerta.getAlerta(), animated: true, completion: nil)
-                        }else{
-                            //Redirecionar o usuario para tela principal
-                            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                        }else{//se deu certo vai cair nesse else ai o ouvinte vai jogar na outra tela
+                        
                         }
                         
                     }else{//houve erro
