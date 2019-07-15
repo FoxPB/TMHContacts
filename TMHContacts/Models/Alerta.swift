@@ -22,7 +22,7 @@ class Alerta {
         
         let alerta = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
         
-        let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let cancelar = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         
         alerta.addAction(cancelar)
         

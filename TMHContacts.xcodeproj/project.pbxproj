@@ -22,6 +22,7 @@
 		513DBA3322DBF4B70028903F /* ContatosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DBA3222DBF4B70028903F /* ContatosTableViewController.swift */; };
 		516BBEFF22DBEBF500ED0F8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516BBEFE22DBEBF500ED0F8C /* GoogleService-Info.plist */; };
 		5170CF6522DA06EE0008FBFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170CF6422DA06EE0008FBFC /* LoginViewController.swift */; };
+		51D6882222DC908A00B477D2 /* AdicionarContatoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6882122DC908A00B477D2 /* AdicionarContatoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		513DBA3222DBF4B70028903F /* ContatosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosTableViewController.swift; sourceTree = "<group>"; };
 		516BBEFE22DBEBF500ED0F8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5170CF6422DA06EE0008FBFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		51D6882122DC908A00B477D2 /* AdicionarContatoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarContatoViewController.swift; sourceTree = "<group>"; };
 		FA7F360F2C9EB3B152E5CF22 /* Pods-TMHContacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMHContacts.debug.xcconfig"; path = "Target Support Files/Pods-TMHContacts/Pods-TMHContacts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 				51035F4622DA2F0100543532 /* MapViewController.swift */,
 				513DBA3022DBF2D70028903F /* ProfileViewController.swift */,
 				513DBA3222DBF4B70028903F /* ContatosTableViewController.swift */,
+				51D6882122DC908A00B477D2 /* AdicionarContatoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-TMHContacts/Pods-TMHContacts-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -243,6 +247,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -266,6 +271,7 @@
 				5170CF6522DA06EE0008FBFC /* LoginViewController.swift in Sources */,
 				513DBA3122DBF2D70028903F /* ProfileViewController.swift in Sources */,
 				51035F4722DA2F0100543532 /* MapViewController.swift in Sources */,
+				51D6882222DC908A00B477D2 /* AdicionarContatoViewController.swift in Sources */,
 				513DBA3322DBF4B70028903F /* ContatosTableViewController.swift in Sources */,
 				51178E1122D7C133002EB20A /* AppDelegate.swift in Sources */,
 			);
