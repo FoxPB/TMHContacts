@@ -1,5 +1,5 @@
 //
-//  Contato.swift
+//  User.swift
 //  TMHContacts
 //
 //  Created by Ricardo Caldeira on 13/07/19.
@@ -8,15 +8,12 @@
 
 import Foundation
 import UIKit
-import MapKit
 
-class Contato {
+class Usuario {
     
-    var nome = ""
-    var ContatoId = ""
     var email = ""
+    var nome = ""
+    var userId = ""
     var urlImagem = ""
-    var latitude = ""
-    var longitude = ""
-    
+
 }

@@ -11,7 +11,7 @@
 		51035F4322DA22E400543532 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4222DA22E400543532 /* CreateAccountViewController.swift */; };
 		51035F4522DA232C00543532 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4422DA232C00543532 /* ForgotPasswordViewController.swift */; };
 		51035F4722DA2F0100543532 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4622DA2F0100543532 /* MapViewController.swift */; };
-		51035F4D22DA32CC00543532 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4C22DA32CC00543532 /* User.swift */; };
+		51035F4D22DA32CC00543532 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4C22DA32CC00543532 /* Usuario.swift */; };
 		51035F4F22DA33F600543532 /* Contato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F4E22DA33F600543532 /* Contato.swift */; };
 		51035F5122DA346A00543532 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51035F5022DA346A00543532 /* Alerta.swift */; };
 		51178E1122D7C133002EB20A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51178E1022D7C133002EB20A /* AppDelegate.swift */; };
@@ -22,7 +22,9 @@
 		513DBA3322DBF4B70028903F /* ContatosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DBA3222DBF4B70028903F /* ContatosTableViewController.swift */; };
 		516BBEFF22DBEBF500ED0F8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516BBEFE22DBEBF500ED0F8C /* GoogleService-Info.plist */; };
 		5170CF6522DA06EE0008FBFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170CF6422DA06EE0008FBFC /* LoginViewController.swift */; };
+		51A6CBAD22DE0E76003D8815 /* Localizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A6CBAC22DE0E76003D8815 /* Localizacao.swift */; };
 		51D6882222DC908A00B477D2 /* AdicionarContatoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6882122DC908A00B477D2 /* AdicionarContatoViewController.swift */; };
+		51D6882422DD16C400B477D2 /* ContatoCelula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6882322DD16C400B477D2 /* ContatoCelula.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +33,7 @@
 		51035F4222DA22E400543532 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		51035F4422DA232C00543532 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		51035F4622DA2F0100543532 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		51035F4C22DA32CC00543532 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		51035F4C22DA32CC00543532 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		51035F4E22DA33F600543532 /* Contato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contato.swift; sourceTree = "<group>"; };
 		51035F5022DA346A00543532 /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
 		51178E0D22D7C133002EB20A /* TMHContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMHContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +46,9 @@
 		513DBA3222DBF4B70028903F /* ContatosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosTableViewController.swift; sourceTree = "<group>"; };
 		516BBEFE22DBEBF500ED0F8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5170CF6422DA06EE0008FBFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		51A6CBAC22DE0E76003D8815 /* Localizacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizacao.swift; sourceTree = "<group>"; };
 		51D6882122DC908A00B477D2 /* AdicionarContatoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarContatoViewController.swift; sourceTree = "<group>"; };
+		51D6882322DD16C400B477D2 /* ContatoCelula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoCelula.swift; sourceTree = "<group>"; };
 		FA7F360F2C9EB3B152E5CF22 /* Pods-TMHContacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMHContacts.debug.xcconfig"; path = "Target Support Files/Pods-TMHContacts/Pods-TMHContacts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,9 +84,10 @@
 		51035F4822DA326800543532 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				51035F4C22DA32CC00543532 /* User.swift */,
+				51035F4C22DA32CC00543532 /* Usuario.swift */,
 				51035F4E22DA33F600543532 /* Contato.swift */,
 				51035F5022DA346A00543532 /* Alerta.swift */,
+				51A6CBAC22DE0E76003D8815 /* Localizacao.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -127,9 +132,10 @@
 				51035F4222DA22E400543532 /* CreateAccountViewController.swift */,
 				51035F4422DA232C00543532 /* ForgotPasswordViewController.swift */,
 				51035F4622DA2F0100543532 /* MapViewController.swift */,
-				513DBA3022DBF2D70028903F /* ProfileViewController.swift */,
 				513DBA3222DBF4B70028903F /* ContatosTableViewController.swift */,
 				51D6882122DC908A00B477D2 /* AdicionarContatoViewController.swift */,
+				513DBA3022DBF2D70028903F /* ProfileViewController.swift */,
+				51D6882322DD16C400B477D2 /* ContatoCelula.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -267,10 +273,12 @@
 				51035F4F22DA33F600543532 /* Contato.swift in Sources */,
 				51035F4522DA232C00543532 /* ForgotPasswordViewController.swift in Sources */,
 				51035F4322DA22E400543532 /* CreateAccountViewController.swift in Sources */,
-				51035F4D22DA32CC00543532 /* User.swift in Sources */,
+				51035F4D22DA32CC00543532 /* Usuario.swift in Sources */,
 				5170CF6522DA06EE0008FBFC /* LoginViewController.swift in Sources */,
 				513DBA3122DBF2D70028903F /* ProfileViewController.swift in Sources */,
 				51035F4722DA2F0100543532 /* MapViewController.swift in Sources */,
+				51A6CBAD22DE0E76003D8815 /* Localizacao.swift in Sources */,
+				51D6882422DD16C400B477D2 /* ContatoCelula.swift in Sources */,
 				51D6882222DC908A00B477D2 /* AdicionarContatoViewController.swift in Sources */,
 				513DBA3322DBF4B70028903F /* ContatosTableViewController.swift in Sources */,
 				51178E1122D7C133002EB20A /* AppDelegate.swift in Sources */,

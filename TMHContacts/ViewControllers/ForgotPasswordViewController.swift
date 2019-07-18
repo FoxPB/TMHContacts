@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ForgotPasswordViewController: UIViewController {
     
@@ -15,6 +16,34 @@ class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var btnChangePassword: UIButton!
     
     @IBAction func btnChangePassword(_ sender: Any) {
+        
+        if let emailR = self.emailTextField.text {
+            
+            let autenticacao = Auth.auth()
+            
+            //envia um email para redefinicao de senha do usuario
+            autenticacao.sendPasswordReset(withEmail: emailR) { (erro) in
+                
+                if erro != nil {
+                    let alerta = Alerta(titulo: "Incorrect data", mensagem: "Check the data and re-enter")
+                    self.present(alerta.getAlerta(), animated: true, completion: nil)
+                }else{
+                    self.performSegue(withIdentifier: "voltarEntrar", sender: nil)
+                    
+                    //descobrir depois porque so esta executando a primeira opcao depois do Else, ou ele envia para outra tela ou da o alert
+                    let alerta = UIAlertController(title: "E-mail sent", message: "Check your email box to reset the password", preferredStyle: .alert)
+                    
+                    let cancelar = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                   
+                    alerta.addAction(cancelar)
+                    
+                    self.present(alerta, animated: true, completion: nil)
+                }
+                
+            }
+            
+        }
+        
     }
     
     override func viewDidLoad() {

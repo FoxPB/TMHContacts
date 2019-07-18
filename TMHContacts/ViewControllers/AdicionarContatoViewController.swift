@@ -12,16 +12,18 @@ import FirebaseDatabase
 
 class AdicionarContatoViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
+   
+    @IBOutlet weak var idContact: UITextField!
     @IBOutlet weak var btnAdicionar: UIButton!
     
     var auth: Auth!
     let database = Database.database().reference()
-    var emailR: String!
+    var IDRecuperado: String!
     
     @IBAction func btnAdicionarAction(_ sender: Any) {
         
-        
+        AddContato()
+
     }
     
     private func AddContato() {
@@ -29,35 +31,52 @@ class AdicionarContatoViewController: UIViewController {
         //criando um nó usuarios
         let usuarios = self.database.child("usuarios")
         
-        if emailTextField.text != nil {
-            self.emailR = emailTextField.text
+        if idContact.text != nil || idContact.text != "" {
             
+            self.IDRecuperado = idContact.text
             
+            let usuarioParaAdicionar = usuarios.child(self.IDRecuperado)
+                
+                //Fazendo a consulta no Banco apenas uma vez com (observeSingleEvent) ao inves de fica "escutando" sempre que tiver alteracao com (observe)
+                usuarioParaAdicionar.observeSingleEvent(of: DataEventType.value) { (snapshot) in
+                    
+                    if snapshot != nil {
+                        
+                        let dadosUsuarioParaAdiconar = snapshot.value as? NSDictionary
+                        
+                        //criando um nó usuarios
+                        let usuarios = self.database.child("usuarios")
+                        
+                        //Recuperar Dados do usuario logado
+                        if let idUsuarioLogado = self.auth.currentUser?.uid {
+                            
+                            let usuarioLogado = usuarios.child(idUsuarioLogado)
+                            let contatosUsuarioLogado = usuarioLogado.child("contatos")
+                            
+                            let dados = [
+                            "nome" : dadosUsuarioParaAdiconar?["nome"],
+                            "email" : dadosUsuarioParaAdiconar?["email"],
+                            "urlImagem" : dadosUsuarioParaAdiconar?["urlImagem"]
+                            ]
+                            
+                            //Salvando o id do contato no nó contatos
+                            contatosUsuarioLogado.child(self.IDRecuperado).setValue(dados)
+                            
+                            self.performSegue(withIdentifier: "segueContatos", sender: nil)
+                            
+                        }
+                        
+                    }else{//ID digitado não existe
+                        let alerta = Alerta(titulo: "Incorrect data", mensagem: "Confirm with your contact his id")
+                        self.present(alerta.getAlerta(), animated: true, completion: nil)
+                    }
+                    
+                }
             
         }else{
-            let alerta = Alerta(titulo: "Dados incorretos", mensagem: "Verifique os dados digitados e tente novamente")
+            let alerta = Alerta(titulo: "Incorrect data", mensagem: "Please check your typed data and try again")
             self.present(alerta.getAlerta(), animated: true, completion: nil)
         }
-        
-        /*
-        //Recuperar Dados do usuario logado
-        if let idUsuarioLogado = self.auth.currentUser?.uid {
-            
-            //Setando o iD do usuario no id da imagem
-            self.idImagem = idUsuarioLogado
-            
-            let usuarioLogado = usuarios.child(idUsuarioLogado)
-            
-            //Fazendo a consulta no Banco apenas uma vez com (observeSingleEvent) ao inves de fica "escutando" sempre que tiver alteracao com (observe)
-            usuarioLogado.observeSingleEvent(of: DataEventType.value) { (snapshot) in
-                
-                let dadosUsuarioLogado = snapshot.value as? NSDictionary
-                self.name.text = dadosUsuarioLogado?["nome"] as? String
-                self.email.text  = dadosUsuarioLogado?["email"] as? String
-                self.urlImagemRecuperada  = dadosUsuarioLogado?["urlImagem"] as? String
-                
-            }
-        }*/
         
     }
     
@@ -67,6 +86,5 @@ class AdicionarContatoViewController: UIViewController {
         auth = Auth.auth()
 
     }
-    
 
 }

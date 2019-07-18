@@ -196,9 +196,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     
                     let url = URL(string: self.urlImagemRecuperada)
                     
+                    //Aqui é carregada a imagem
                     self.imageProfile.sd_setImage(with: url) { (image, erro, cache, url) in
                         
-                        //aqui é carregada a imagem
+                       self.imageProfile.layer.cornerRadius = 65
+                       self.imageProfile.clipsToBounds = true
                         
                     }
                 }

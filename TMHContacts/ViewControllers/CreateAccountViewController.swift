@@ -58,7 +58,10 @@ class CreateAccountViewController: UIViewController {
                                             let usuarios = self.database.child("usuarios")
                                             
                                             //criando um dicionario pra setar os valores do usuario no banco
-                                            let usuariosDados = ["nome": nomeCompletoR, "email": emailR]
+                                            let usuariosDados = [
+                                                "nome": nomeCompletoR,
+                                                "email": emailR
+                                            ]
                                             
                                             //Criando mais um nó de com ID do usuario e setando os valores nesse nó
                                             usuarios.child(usuario!.user.uid).setValue(usuariosDados)

@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var btnSignIn: UIButton!
     var auth: Auth!
+    var usuario = Usuario()
     
     @IBAction func btnSignInAction(_ sender: Any) {
         
@@ -37,10 +38,12 @@ class LoginViewController: UIViewController {
         self.auth.addStateDidChangeListener { (autenticacao, usuario) in
             
             if usuario != nil {
-                self.performSegue(withIdentifier: "mapViewSegue", sender: nil)
+                
+              self.performSegue(withIdentifier: "mapViewSegue", sender: nil)
+                
             }
-            
         }
+        
         
     }
     
