@@ -64,7 +64,7 @@ class CreateAccountViewController: UIViewController {
                                             ]
                                             
                                             //Criando mais um nó de com ID do usuario e setando os valores nesse nó
-                                            usuarios.child(usuario!.user.uid).setValue(usuariosDados)
+                                            usuarios.child(usuario!.user.uid).child("perfil").setValue(usuariosDados)
                                             
                                         }
                                         

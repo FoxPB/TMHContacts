@@ -92,6 +92,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                 if let idUsuarioLogado = self.auth.currentUser?.uid {
                                     
                                     let usuarioLogado = usuarios.child(idUsuarioLogado)
+                                    let perfilUsarioLogado = usuarioLogado.child("perfil")
                                     
                                     let imagemDados = [
                                         "nome": self.name.text,
@@ -100,7 +101,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                     ]
                                     
                                     //em vez de salvar dado por dado... um a um... criamos um dicionario e passamos ele aqui para salvar.
-                                    usuarioLogado.setValue(imagemDados)
+                                    perfilUsarioLogado.setValue(imagemDados)
                                     
                                 }
                                 
@@ -166,9 +167,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.idImagem = idUsuarioLogado
             
             let usuarioLogado = usuarios.child(idUsuarioLogado)
+            let perfilUsarioLogado = usuarioLogado.child("perfil")
             
             //Fazendo a consulta no Banco apenas uma vez com (observeSingleEvent) ao inves de fica "escutando" sempre que tiver alteracao com (observe)
-            usuarioLogado.observeSingleEvent(of: DataEventType.value) { (snapshot) in
+            perfilUsarioLogado.observeSingleEvent(of: DataEventType.value) { (snapshot) in
                 
                 let dadosUsuarioLogado = snapshot.value as? NSDictionary
                 self.name.text = dadosUsuarioLogado?["nome"] as? String
@@ -199,8 +201,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     //Aqui é carregada a imagem
                     self.imageProfile.sd_setImage(with: url) { (image, erro, cache, url) in
                         
-                       self.imageProfile.layer.cornerRadius = 65
-                       self.imageProfile.clipsToBounds = true
                         
                     }
                 }
@@ -218,6 +218,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePiker.delegate = self
         self.btnSaveImage.isHidden = true
         carregarImagemProfile()
+        
+        self.imageProfile.layer.cornerRadius = 65
+        self.imageProfile.clipsToBounds = true
     }
 
 }

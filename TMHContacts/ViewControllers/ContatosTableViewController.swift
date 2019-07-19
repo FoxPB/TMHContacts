@@ -84,9 +84,10 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
             let usuarios = self.database.child("usuarios")
             let contatos = usuarios.child(idUsuarioLogado).child("contatos")
             let usuario = usuarios.child(idUsuarioLogado)
+            let perfil = usuario.child("perfil")
             
             //criar um ouvinte do Banco
-            usuario.observeSingleEvent(of: DataEventType.value) { (snapshotUsuario) in
+            perfil.observeSingleEvent(of: DataEventType.value) { (snapshotUsuario) in
                 
                 let dadosUsuarioLogado = snapshotUsuario.value as? NSDictionary
                 
@@ -155,11 +156,12 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
         return 1
     }
     
+    /*
     private func removerContato() {
         
         let autenticacao = Auth.auth()
         
-        //pegando o id de usuario logado, para descobrir se ele tem snaps
+        //pegando o id de usuario logado
         if let idUsuarioLogado = autenticacao.currentUser?.uid {
             
             let usuarios = database.child("usuarios")
@@ -182,7 +184,7 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
             }
         }
         
-    }
+    }*/
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -257,19 +259,23 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
         return cell
     }
     
-    //metodo que recupera o usuario selecionado para enviar a localização
+    //metodo que recupera o usuario selecionado para enviar a localização ou mostrar a localização ja enviada
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let contato = contatos[indexPath.row]
         
        
-        var alerta = UIAlertController(title: "Send location", message: "Do you want to send location to this contact?", preferredStyle: .alert)
+        var alerta = UIAlertController(title: "Não ha alerta", message: "There is no available alert for this contact for you.", preferredStyle: .alert)
         
-        let cancelar = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        var cancelar = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alerta.addAction(cancelar)
         
         if contato.latitude != "" {
             
-            alerta = UIAlertController(title: "Send location or See alert", message: "Do you want to send location to this contact? or see the alert it sent?", preferredStyle: .alert)
+            alerta = UIAlertController(title: "See alert", message: "See the alert it sent?", preferredStyle: .alert)
+            
+             cancelar = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
             //Aqui enviamos o usuario para ver a anotacao no map
             let verAlerta = UIAlertAction(title: "See alert", style: .default) { (alertaConfigurações) in
@@ -280,16 +286,6 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
             
             alerta.addAction(verAlerta)
         }
-        
-        //Aqui enviamos a localização para o usuario
-        let enviarLocalização = UIAlertAction(title: "Send location", style: .default) { (alertaConfigurações) in
-            
-            self.enviarLocalizacao(indexPath: indexPath)
-        
-        }
-        
-        alerta.addAction(enviarLocalização)
-        alerta.addAction(cancelar)
         
         self.present(alerta, animated: true, completion: nil)
         

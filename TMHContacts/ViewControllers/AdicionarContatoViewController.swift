@@ -35,7 +35,7 @@ class AdicionarContatoViewController: UIViewController {
             
             self.IDRecuperado = idContact.text
             
-            let usuarioParaAdicionar = usuarios.child(self.IDRecuperado)
+            let usuarioParaAdicionar = usuarios.child(self.IDRecuperado).child("perfil")
                 
                 //Fazendo a consulta no Banco apenas uma vez com (observeSingleEvent) ao inves de fica "escutando" sempre que tiver alteracao com (observe)
                 usuarioParaAdicionar.observeSingleEvent(of: DataEventType.value) { (snapshot) in
