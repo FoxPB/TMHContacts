@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-1630707_960_720" translatesAutoresizingMaskIntoConstraints="NO" id="45c-yJ-mXf">
-                                <rect key="frame" x="53.5" y="78" width="307.00000000000011" height="211"/>
+                                <rect key="frame" x="53.5" y="78" width="307" height="211"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="307" id="O2i-Li-gYv"/>
                                     <constraint firstAttribute="height" constant="211" id="udn-LB-Y0M"/>
@@ -394,7 +394,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="xAc62CufKFg3rsC4QH1Np69KytX2" placeholder="enter the contact id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p1H-xf-eRQ">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="tkjnvK9ENIMAlNWtUyMJkPbNCvy1" placeholder="enter the contact id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p1H-xf-eRQ">
                                 <rect key="frame" x="53" y="150" width="341" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>

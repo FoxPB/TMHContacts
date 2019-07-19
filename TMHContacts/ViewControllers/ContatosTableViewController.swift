@@ -265,7 +265,7 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
         let contato = contatos[indexPath.row]
         
        
-        var alerta = UIAlertController(title: "Não ha alerta", message: "There is no available alert for this contact for you.", preferredStyle: .alert)
+        var alerta = UIAlertController(title: "There is no alert", message: "There is no available alert for this contact for you.", preferredStyle: .alert)
         
         var cancelar = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         
