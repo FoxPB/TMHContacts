@@ -96,6 +96,7 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
                 }
                 
                 self.usuario.nome = dadosUsuarioLogado?["nome"] as! String
+                self.usuario.email = dadosUsuarioLogado?["email"] as! String
             }
             
             //criar um ouvinte do Banco
@@ -109,7 +110,10 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
                 contato.ContatoId = snapshotContato.key
                 contato.nome = dadosContato?["nome"] as! String
                 contato.email = dadosContato?["email"] as! String
-                contato.urlImagem = dadosContato?["urlImagem"] as! String
+                
+                if dadosContato?["urlImagem"] as? String != nil {
+                    contato.urlImagem = dadosContato?["urlImagem"] as! String
+                }
                 
                 self.contatos.append(contato)
                 
@@ -136,7 +140,7 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
                     localizacao.idlocalizacao = snapshotLocalizacao.key
                     localizacao.latitude = dadosLocalizacao?["coordenadasLatitude"] as! String
                     localizacao.longitude = dadosLocalizacao?["coordenadasLongitude"] as! String
-                    
+                
                     self.localizacoes.append(localizacao)
                     
                     print(self.localizacoes.count)
@@ -156,7 +160,7 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
         return 1
     }
     
-    /*
+    
     private func removerContato() {
         
         let autenticacao = Auth.auth()
@@ -184,7 +188,66 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
             }
         }
         
-    }*/
+    }
+    
+    //func para aparecer o botao DELETE padrão
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        //Removendo item
+        if editingStyle == UITableViewCell.EditingStyle.delete{
+            
+            let alerta = UIAlertController(title: "Delete contact?", message: "Are you sure you want to delete this contact?, it will also delete the alert if the contact has sent", preferredStyle: .alert)
+            
+            let cancelar = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            let deletar = UIAlertAction(title: "Delete", style: .default) { (alertaDeletar) in
+                
+                //Aqui dentro vamos deletar da tabela e do banco
+                
+                //pegando o id de usuario logado
+                if let idUsuarioLogado = self.auth.currentUser?.uid {
+                    
+                    let usuarios = self.database.child("usuarios")
+                    let contatosBanco = usuarios.child(idUsuarioLogado).child("contatos")
+                    let localizacoesBanco = usuarios.child(idUsuarioLogado).child("localizacoes")
+                    let idContatoDeletar = self.contatos[indexPath.row].ContatoId
+                    
+                    //Aqui exatamente deletamos do Banco
+                    contatosBanco.child(idContatoDeletar).removeValue()
+                    
+                    //Aqui exatamente deletamos da tebala
+                    self.contatos.remove(at: indexPath.row)
+                    
+                    //Aqui extamente deletamos a localização do banco
+                    localizacoesBanco.child(idContatoDeletar).removeValue()
+                    
+                    var aux = 0
+                    
+                    for localizacao in self.localizacoes {
+                        
+                        if localizacao.idlocalizacao == idContatoDeletar {
+                            
+                        self.localizacoes.remove(at: aux)
+                        
+                        }
+
+                        aux += 1
+                        
+                    }
+        
+                    self.tableView.reloadData()
+                }
+                
+            }
+        
+            alerta.addAction(cancelar)
+            alerta.addAction(deletar)
+            
+            self.present(alerta, animated: true, completion: nil)
+            
+        }
+        
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -206,12 +269,16 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
         
         if contatos.count == 0 {//nao tem contatos
             cell.nameContato.text = "You have no contact :)"
+            cell.imageContato.image = #imageLiteral(resourceName: "username")
+            cell.alertaContato.text = ""
+            cell.alertaContato.textColor = UIColor(displayP3Red: 0.000, green: 0.000, blue: 0.000, alpha: 1)
         }else{//tem contatos
             //Configuração da celula
             let contato = self.contatos[indexPath.row]
             
             cell.nameContato.text = contato.nome
             cell.alertaContato.text = "No alert"
+            cell.alertaContato.textColor = UIColor(displayP3Red: 0.000, green: 0.000, blue: 0.000, alpha: 1)
             
             //Estamos apotando para a raiz do Storage no firebase
             let armazenamento = Storage.storage().reference()
@@ -259,12 +326,12 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
         return cell
     }
     
-    //metodo que recupera o usuario selecionado para enviar a localização ou mostrar a localização ja enviada
+    //metodo que recupera o usuario selecionado para mostrar a localização ja enviada
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+ 
         
         let contato = contatos[indexPath.row]
         
-       
         var alerta = UIAlertController(title: "There is no alert", message: "There is no available alert for this contact for you.", preferredStyle: .alert)
         
         var cancelar = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -288,7 +355,43 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
         }
         
         self.present(alerta, animated: true, completion: nil)
+ 
         
+        /*
+        //Essa parte ta comentada porque o cliente não quis essa funcionalidade
+        let contato = contatos[indexPath.row]
+        
+        
+        var alerta = UIAlertController(title: "Send location", message: "Do you want to send location to this contact?", preferredStyle: .alert)
+        
+        let cancelar = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        if contato.latitude != "" {
+            
+            alerta = UIAlertController(title: "Send location or See alert", message: "Do you want to send location to this contact? or see the alert it sent?", preferredStyle: .alert)
+            
+            //Aqui enviamos o usuario para ver a anotacao no map
+            let verAlerta = UIAlertAction(title: "See alert", style: .default) { (alertaConfigurações) in
+                
+                self.performSegue(withIdentifier: "segueMapView", sender: contato)
+                
+            }
+            
+            alerta.addAction(verAlerta)
+        }
+        
+        //Aqui enviamos a localização para o usuario
+        let enviarLocalização = UIAlertAction(title: "Send location", style: .default) { (alertaConfigurações) in
+            
+            self.enviarLocalizacao(indexPath: indexPath)
+            
+        }
+        
+        alerta.addAction(enviarLocalização)
+        alerta.addAction(cancelar)
+        
+        self.present(alerta, animated: true, completion: nil)
+        */
     }
     
     
@@ -304,22 +407,6 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
             
         }
     }
-    
-
-    
-    //func para aparecer o botaao DELETE padrão
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        /*
-        //Removendo item
-        if editingStyle == UITableViewCell.EditingStyle.delete{
-            
-            self.contatos.remove(at: indexPath.row)
-            
-        */
-          
-    }
-    
 
     func enviarLocalizacao(indexPath: IndexPath){
         
@@ -334,17 +421,32 @@ class ContatosTableViewController: UITableViewController, CLLocationManagerDeleg
             //Criando um nó no banco chamado localizações
             let localizacoes = contato.child("localizacoes")
             
+            //Criando um nó no banco chamado contatos
+            let contatos = contato.child("contatos")
+            
+            //É ficou meio confuso... mas é adicionado um contato la no contato do usario, que no caso é o proprio usuario
+            let addContatoAOContato = contatos.child(self.auth.currentUser!.uid)
+            
             //Criando um no com o id do usario que mandou a localizacao
             let localizacaoUsuario = localizacoes.child(self.auth.currentUser!.uid)
             
             //criando um dicionario pra setar os valores do usuario no banco
-            let usuariosDados = [
+            let usuarioDados = [
                 "coordenadasLatitude": coordenadas.latitude.description,
                 "coordenadasLongitude": coordenadas.longitude.description,
             ]
             
-            //salvando no banco
-            localizacaoUsuario.setValue(usuariosDados)
+            let usuarioPerfil = [
+                "email" : usuario.email,
+                "nome"  : usuario.nome,
+                "urlImagem" : usuario.urlImagem
+            ]
+            
+            //Salvando no banco a localizacao
+            localizacaoUsuario.setValue(usuarioDados)
+            
+            //Salvando no banco o contato
+            addContatoAOContato.setValue(usuarioPerfil)
             
             
         }

@@ -18,7 +18,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var descricaoEndereco: UILabel!
     
-    
     var gerenciadorDeLocalizacao = CLLocationManager()
     let database = Database.database().reference()
     var auth: Auth!
